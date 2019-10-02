@@ -162,7 +162,7 @@ endlegend
 !define System_Ext(e_alias, e_label) rectangle "==e_label" <<external_system>> as e_alias
 !define System_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_system>> as e_alias
 
-!define SystemDb(e_alias, e_label) database "==e_label" <<system>> as e_alias
+!define SystemDb(e_alias, e_label) database "==e_label" <<system>> as e_alias 
 !define SystemDb(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<system>> as e_alias
 
 !define SystemDb_Ext(e_alias, e_label) database "==e_label" <<external_system>> as e_alias
