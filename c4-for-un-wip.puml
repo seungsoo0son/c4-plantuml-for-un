@@ -38,7 +38,7 @@ skinparam database {
 }
 
 skinparam Arrow {
-'    Color #666666
+    Color #666666
     FontColor #666666
     FontSize 12
 }
@@ -47,7 +47,7 @@ skinparam rectangle<<boundary>> {
     Shadowing false
     StereotypeFontSize 0
     FontColor #444444
-    BorderColor #444444
+'    BorderColor #444444
 }
 
 skinparam actor<<actor>> {
@@ -146,7 +146,7 @@ endlegend
 
 !define Enterprise_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Enterprise", "#line.bold")
 !define Office_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Office")
-!define DC_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Data Center", "#line:darkblue;line.dashed")
+!define DC_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Data Center", "#line:red;line.dashed")
 !define Zone_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Zone", "#line.dashed")
 !define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System", "#line.dotted")
 '!define Container_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Container")
