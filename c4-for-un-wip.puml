@@ -143,6 +143,8 @@ endlegend
 !define Boundary(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<boundary>> as e_alias
 
 !define Enterprise_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Enterprise")
+!define DC_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Data Center")
+!define Zone_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Zone")
 !define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System")
 !define Container_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Container")
 
@@ -172,7 +174,19 @@ endlegend
 !define ContainerDb(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
 !define ContainerDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
 
-!define Link(e_from, e_to, e_label) e_from --> e_to : "===e_label" 
+!define Access_(e_from, e_to, e_label, e_direction="") e_from e_direction e_to : "===e_label" 
+!define Access_(e_from, e_to, e_label, e_techn, e_direction="") e_from e_direction e_to : "===e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//"
+!define Access(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "->")
+!define Access(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "->")
+!define Access_U(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-UP->")
+!define Access_U(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "-UP->")
+!define Access_D(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-DOWN->")
+!define Access_D(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "-DOWN->")
+!define Access_L(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-LEFT->")
+!define Access_L(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "-LEFT->")
+!define Access_R(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-RIGHT->")
+!define Access_R(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "-RIGHT->")
+
 
 ' Relationship
 ' ##################################
