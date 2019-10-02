@@ -183,8 +183,8 @@ endlegend
 ' ##################################
 !define Access_(e_from, e_to, e_label, e_direction="") e_from e_direction e_to : "===e_label" 
 !define Access_(e_from, e_to, e_label, e_techn, e_direction="") e_from e_direction e_to : "===e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//"
-!define Access(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "->")
-!define Access(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "->")
+!define Access(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-->")
+!define Access(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "-->")
 !define Access_U(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-UP->")
 !define Access_U(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "-UP->")
 !define Access_D(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-DOWN->")
