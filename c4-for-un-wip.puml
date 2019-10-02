@@ -112,7 +112,6 @@ skinparam usecase<<container>> {
     BorderColor #3C7FC0
 }
 
-
 ' Layout
 ' ##################################
 
@@ -147,6 +146,33 @@ endlegend
 !define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System")
 !define Container_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Container")
 
+' Elements
+' ##################################
+!define Person(e_alias, e_label) actor "==e_label" <<actor>> as e_alias
+!define Person(e_alias, e_label, e_descr) actor "==e_label\n\n e_descr" <<actor>> as e_alias
+
+!define Person_Ext(e_alias, e_label) actor "==e_label" <<external_actor>> as e_alias
+!define Person_Ext(e_alias, e_label, e_descr) actor "==e_label\n\n e_descr" <<external_actor>> as e_alias
+
+!define System(e_alias, e_label) rectangle "==e_label" <<system>> as e_alias
+!define System(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<system>> as e_alias
+
+!define System_Ext(e_alias, e_label) rectangle "==e_label" <<external_system>> as e_alias
+!define System_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_system>> as e_alias
+
+!define SystemDb(e_alias, e_label) database "==e_label" <<system>> as e_alias
+!define SystemDb(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<system>> as e_alias
+
+!define SystemDb_Ext(e_alias, e_label) database "==e_label" <<external_system>> as e_alias
+!define SystemDb_Ext(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<external_system>> as e_alias
+
+!define Container(e_alias, e_label, e_techn) usecase "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
+!define Container(e_alias, e_label, e_techn, e_descr) usecase "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
+
+!define ContainerDb(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
+!define ContainerDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
+
+!define Link(e_from, e_to, e_label) e_from -> e_to : "==e_label" 
 
 ' Relationship
 ' ##################################
@@ -193,39 +219,5 @@ endlegend
 !define Lay_U(e_from, e_to) e_from -[hidden]U- e_to
 !define Lay_R(e_from, e_to) e_from -[hidden]R- e_to
 !define Lay_L(e_from, e_to) e_from -[hidden]L- e_to
-
-' Elements
-' ##################################
-!define Person(e_alias, e_label) actor "==e_label" <<actor>> as e_alias
-!define Person(e_alias, e_label, e_descr) actor "==e_label\n\n e_descr" <<persona>> as e_alias
-
-!define Person_Ext(e_alias, e_label) actor "==e_label" <<external_actor>> as e_alias
-!define Person_Ext(e_alias, e_label, e_descr) actor "==e_label\n\n e_descr" <<persona_ext>> as e_alias
-
-
-'!define Person(e_alias, e_label) rectangle "==e_label" <<person>> as e_alias
-'!define Person(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<person>> as e_alias
-
-'!define Person_Ext(e_alias, e_label) rectangle "==e_label" <<external_person>> as e_alias
-'!define Person_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_person>> as e_alias
-
-!define System(e_alias, e_label) rectangle "==e_label" <<system>> as e_alias
-!define System(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<system>> as e_alias
-
-!define System_Ext(e_alias, e_label) rectangle "==e_label" <<external_system>> as e_alias
-!define System_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_system>> as e_alias
-
-!define SystemDb(e_alias, e_label) database "==e_label" <<system>> as e_alias
-!define SystemDb(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<system>> as e_alias
-
-!define SystemDb_Ext(e_alias, e_label) database "==e_label" <<external_system>> as e_alias
-!define SystemDb_Ext(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<external_system>> as e_alias
-
-!define Container(e_alias, e_label, e_techn) usecase "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
-!define Container(e_alias, e_label, e_techn, e_descr) usecase "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
-
-!define ContainerDb(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
-!define ContainerDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
-
 
 
