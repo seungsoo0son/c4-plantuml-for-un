@@ -145,6 +145,7 @@ endlegend
 !define Boundary(e_alias, e_label, e_type, e_lstyle) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<boundary>> as e_alias #line.e_lstyle
 
 !define Enterprise_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Enterprise")
+!define Office_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Office", "dashed;line:blue")
 !define DC_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Data Center", "dashed")
 !define Zone_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Zone", "dashed")
 !define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System", dotted)
