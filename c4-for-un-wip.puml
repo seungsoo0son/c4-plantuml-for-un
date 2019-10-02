@@ -46,7 +46,7 @@ skinparam rectangle<<boundary>> {
     StereotypeFontSize 0
     FontColor #444444
     BorderColor #444444
-    BorderStyle dashed
+'    BorderStyle dashed
 }
 
 skinparam actor<<actor>> {
@@ -139,14 +139,14 @@ endlegend
 ' Boundaries
 ' ##################################
 
-!define Boundary(e_alias, e_label) rectangle "==e_label" <<boundary>> as e_alias
 !define Boundary(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<boundary>> as e_alias
+!define Boundary(e_alias, e_label, e_type, e_lstyle) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<boundary>> as e_alias #line.e_lstyle
 
 !define Enterprise_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Enterprise")
-!define DC_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Data Center")
-!define Zone_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Zone")
-!define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System")
-!define Container_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Container")
+!define DC_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Data Center", "dashed")
+!define Zone_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Zone", "dotted")
+'!define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System")
+'!define Container_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Container")
 
 ' Elements
 ' ##################################
