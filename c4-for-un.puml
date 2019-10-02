@@ -1,6 +1,6 @@
 ' C4-PlantUML-for-UN, version 1.0.0
 ' https://github.com/RicardoNiepel/C4-PlantUML
-' https://github.com/
+' https://github.com/seungsoo0son/c4-plantuml-for-un 
 
 ' Colors
 ' ##################################
@@ -128,19 +128,20 @@ center footer <font color=red>Warning:</font> Created for discussion, needs to b
 ' Styling
 ' ##################################
 
-skinparam rectangle<<person>> {
+skinparam actor<<persona>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    FontColor PERSON_BG_COLOR
     BackgroundColor PERSON_BG_COLOR
     BorderColor #073B6F
 }
 
-skinparam rectangle<<external_person>> {
+skinparam actor<<persona_ext>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    FontColor EXTERNAL_PERSON_BG_COLOR
     BackgroundColor EXTERNAL_PERSON_BG_COLOR
     BorderColor #8A8A8A
 }
+
 
 skinparam rectangle<<system>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
@@ -184,19 +185,6 @@ legend right
 endlegend
 !enddefinelong
 
-skinparam actor<<persona>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
-    BackgroundColor PERSON_BG_COLOR
-    BorderColor #073B6F
-}
-
-skinparam actor<<persona_ext>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
-    BackgroundColor EXTERNAL_PERSON_BG_COLOR
-    BorderColor #8A8A8A
-}
 
 ' Elements
 ' ##################################
