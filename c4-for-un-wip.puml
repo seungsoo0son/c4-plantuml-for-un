@@ -117,7 +117,7 @@ skinparam usecase<<container>> {
 ' ##################################
 
 !definelong LAYOUT_AS_SKETCH
-skinparam backgroundColor White
+skinparam backgroundColor #000000
 skinparam handwritten true
 skinparam defaultFontName "Comic Sans MS"
 center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
