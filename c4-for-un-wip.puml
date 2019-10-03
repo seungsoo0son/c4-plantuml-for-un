@@ -27,6 +27,16 @@ skinparam backgroundColor #EEEBDC
 skinparam wrapWidth 200
 skinparam maxMessageSize 150
 
+skinparam title {
+    FontColor #0019F7
+    FontSize 24
+}   
+
+skinparam caption {
+    FontColor #262626
+    FontSize 18
+}
+
 skinparam rectangle {
     StereotypeFontSize 12
     shadowing false
@@ -150,7 +160,7 @@ endlegend
 !define DC_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Data Center", "#line.dashed")
 !define Zone_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Zone", "#line.dashed")
 !define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System", "#line:dimgray;line.bold")
-!define Node_Boundary(e_alias, e_label) Node "==e_label\n<size:TECHN_FONT_SIZE>Node</size>" <<boundary>> as e_alias #line.dotted
+!define Node_Boundary(e_alias, e_label) Node "==e_label\n<size:TECHN_FONT_SIZE>[Node]</size>" <<boundary>> as e_alias #line.dotted
 
 ' Elements
 ' ##################################
