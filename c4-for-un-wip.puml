@@ -1,7 +1,7 @@
 ' C4-PlantUML-for-UN, version 1.0.0
-' https://github.com/RicardoNiepel/C4-PlantUML
-' https://github.com/seungsoo0son/c4-plantuml-for-un 
-' Combine all to one single template for the UN standard diagrams 
+' Original: https://github.com/RicardoNiepel/C4-PlantUML
+' UN: https://github.com/seungsoo0son/c4-plantuml-for-un 
+' Revised definitions for the UN standard diagrams 
 
 ' Colors
 ' ##################################
