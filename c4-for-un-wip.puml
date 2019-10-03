@@ -30,6 +30,7 @@ skinparam maxMessageSize 150
 skinparam title {
     FontColor #0019F7
     FontSize 24
+    FontStyle bold 
 }   
 
 skinparam caption {
