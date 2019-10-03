@@ -34,7 +34,8 @@ skinparam title {
 
 skinparam caption {
     FontColor #262626
-    FontSize 18
+    FontSize 20
+    FontStyle italic 
 }
 
 skinparam rectangle {
