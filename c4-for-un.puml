@@ -1,11 +1,19 @@
 ' C4-PlantUML-for-UN, version 1.0.0
-' https://github.com/RicardoNiepel/C4-PlantUML
-' https://github.com/seungsoo0son/c4-plantuml-for-un 
+' Original: https://github.com/RicardoNiepel/C4-PlantUML
+' UN: https://github.com/seungsoo0son/c4-plantuml-for-un 
+' Revised definitions for the UN standard diagrams 
 
 ' Colors
 ' ##################################
 
 !define ELEMENT_FONT_COLOR #FFFFFF
+
+!define PERSON_BG_COLOR #08427B
+!define EXTERNAL_PERSON_BG_COLOR #686868
+!define SYSTEM_BG_COLOR #1168BD
+!define EXTERNAL_SYSTEM_BG_COLOR #999999
+
+!define CONTAINER_BG_COLOR #438DD5
 
 ' Styling
 ' ##################################
@@ -14,8 +22,25 @@
 
 skinparam defaultTextAlignment center
 
+skinparam backgroundColor #EEEBDC
+
+skinparam handwritten true
+skinparam defaultFontName "Comic Sans MS"
+
 skinparam wrapWidth 200
 skinparam maxMessageSize 150
+
+skinparam title {
+    FontColor #0019F7
+    FontSize 24
+    FontStyle bold 
+}   
+
+skinparam caption {
+    FontColor #262626
+    FontSize 20
+    FontStyle italic 
+}
 
 skinparam rectangle {
     StereotypeFontSize 12
@@ -37,111 +62,23 @@ skinparam rectangle<<boundary>> {
     Shadowing false
     StereotypeFontSize 0
     FontColor #444444
-    BorderColor #444444
-    BorderStyle dashed
+'    BorderColor #444444
+    BorderColor #2E2E2E
 }
 
-' Layout
-' ##################################
-
-!definelong LAYOUT_AS_SKETCH
-skinparam backgroundColor #EEEBDC
-skinparam handwritten true
-skinparam defaultFontName "Comic Sans MS"
-center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
-!enddefinelong
-
-!define LAYOUT_TOP_DOWN top to bottom direction
-!define LAYOUT_LEFT_RIGHT left to right direction
-
-' Boundaries
-' ##################################
-
-!define Boundary(e_alias, e_label) rectangle "==e_label" <<boundary>> as e_alias
-!define Boundary(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<boundary>> as e_alias
-
-' Relationship
-' ##################################
-
-!define Rel_(e_alias1, e_alias2, e_label, e_direction="") e_alias1 e_direction e_alias2 : "===e_label"
-!define Rel_(e_alias1, e_alias2, e_label, e_techn, e_direction="") e_alias1 e_direction e_alias2 : "===e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//"
-
-!define Rel(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-->")
-!define Rel(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-->")
-
-!define Rel_Back(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<--")
-!define Rel_Back(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<--")
-
-!define Rel_Neighbor(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "->")
-!define Rel_Neighbor(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "->")
-
-!define Rel_Back_Neighbor(e_to, e_from, e_label) Rel_(e_to, e_from, e_label, "<-")
-!define Rel_Back_Neighbor(e_to, e_from, e_label, e_techn) Rel_(e_to, e_from, e_label, e_techn, "<-")
-
-!define Rel_D(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-DOWN->")
-!define Rel_D(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-DOWN->")
-!define Rel_Down(e_from,e_to, e_label) Rel_D(e_from,e_to, e_label)
-!define Rel_Down(e_from,e_to, e_label, e_techn) Rel_D(e_from,e_to, e_label, e_techn)
-
-!define Rel_U(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-UP->")
-!define Rel_U(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-UP->")
-!define Rel_Up(e_from,e_to, e_label) Rel_U(e_from,e_to, e_label)
-!define Rel_Up(e_from,e_to, e_label, e_techn) Rel_U(e_from,e_to, e_label, e_techn)
-
-!define Rel_L(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-LEFT->")
-!define Rel_L(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-LEFT->")
-!define Rel_Left(e_from,e_to, e_label) Rel_L(e_from,e_to, e_label)
-!define Rel_Left(e_from,e_to, e_label, e_techn) Rel_L(e_from,e_to, e_label, e_techn)
-
-!define Rel_R(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "-RIGHT->")
-!define Rel_R(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "-RIGHT->")
-!define Rel_Right(e_from,e_to, e_label) Rel_R(e_from,e_to, e_label)
-!define Rel_Right(e_from,e_to, e_label, e_techn) Rel_R(e_from,e_to, e_label, e_techn)
-
-' Layout Helpers
-' ##################################
-
-!define Lay_D(e_from, e_to) e_from -[hidden]D- e_to
-!define Lay_U(e_from, e_to) e_from -[hidden]U- e_to
-!define Lay_R(e_from, e_to) e_from -[hidden]R- e_to
-!define Lay_L(e_from, e_to) e_from -[hidden]L- e_to
-
-
-
-
-' uncomment the following line and comment the first to use locally
-' !include C4.puml
-
-' Scope: A single software system.
-' Primary elements: The software system in scope.
-' Supporting elements: People and software systems directly connected to the software system in scope.
-' Intended audience: Everybody, both technical and non-technical people, inside and outside of the software development team.
-
-' Colors
-' ##################################
-
-!define PERSON_BG_COLOR #08427B
-!define EXTERNAL_PERSON_BG_COLOR #686868
-!define SYSTEM_BG_COLOR #1168BD
-!define EXTERNAL_SYSTEM_BG_COLOR #999999
-
-' Styling
-' ##################################
-
-skinparam actor<<persona>> {
+skinparam actor<<actor>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor PERSON_BG_COLOR
     BackgroundColor PERSON_BG_COLOR
     BorderColor #073B6F
 }
 
-skinparam actor<<persona_ext>> {
+skinparam actor<<external_actor>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor EXTERNAL_PERSON_BG_COLOR
     BackgroundColor EXTERNAL_PERSON_BG_COLOR
     BorderColor #8A8A8A
 }
-
 
 skinparam rectangle<<system>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
@@ -171,73 +108,6 @@ skinparam database<<external_system>> {
     BorderColor #8A8A8A
 }
 
-' Layout
-' ##################################
-
-!definelong LAYOUT_WITH_LEGEND
-hide stereotype
-legend right
-|=              |= Type |
-|<PERSON_BG_COLOR>      | person |
-|<EXTERNAL_PERSON_BG_COLOR>      | external person |
-|<SYSTEM_BG_COLOR>   | system |
-|<EXTERNAL_SYSTEM_BG_COLOR>      | external system |
-endlegend
-!enddefinelong
-
-
-' Elements
-' ##################################
-!define PersonA(e_alias, e_label) actor "==e_label" <<persona>> as e_alias
-!define PersonA(e_alias, e_label, e_descr) actor "==e_label\n\n e_descr" <<persona>> as e_alias
-
-!define PersonA_Ext(e_alias, e_label) actor "==e_label" <<persona_ext>> as e_alias
-!define PersonA_Ext(e_alias, e_label, e_descr) actor "==e_label\n\n e_descr" <<persona_ext>> as e_alias
-
-
-'!define Person(e_alias, e_label) rectangle "==e_label" <<person>> as e_alias
-'!define Person(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<person>> as e_alias
-
-'!define Person_Ext(e_alias, e_label) rectangle "==e_label" <<external_person>> as e_alias
-'!define Person_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_person>> as e_alias
-
-!define System(e_alias, e_label) rectangle "==e_label" <<system>> as e_alias
-!define System(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<system>> as e_alias
-
-!define System_Ext(e_alias, e_label) rectangle "==e_label" <<external_system>> as e_alias
-!define System_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_system>> as e_alias
-
-!define SystemDb(e_alias, e_label) database "==e_label" <<system>> as e_alias
-!define SystemDb(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<system>> as e_alias
-
-!define SystemDb_Ext(e_alias, e_label) database "==e_label" <<external_system>> as e_alias
-!define SystemDb_Ext(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<external_system>> as e_alias
-
-' Boundaries
-' ##################################
-
-!define Enterprise_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Enterprise")
-!define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System")
-
-
-
-!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Context.puml
-' uncomment the following line and comment the first to use locally
-' !include C4_Context.puml
-
-' Scope: A single software system.
-' Primary elements: Containers within the software system in scope.
-' Supporting elements: People and software systems directly connected to the containers.
-' Intended audience: Technical people inside and outside of the software development team; including software architects, developers and operations/support staff.
-
-' Colors
-' ##################################
-
-!define CONTAINER_BG_COLOR #438DD5
-
-' Styling
-' ##################################
-
 skinparam rectangle<<container>> {
     StereotypeFontColor ELEMENT_FONT_COLOR
     FontColor ELEMENT_FONT_COLOR
@@ -259,11 +129,18 @@ skinparam usecase<<container>> {
     BorderColor #3C7FC0
 }
 
-
-
-
 ' Layout
 ' ##################################
+
+!definelong LAYOUT_AS_SKETCH
+skinparam backgroundColor #FFFFFF
+skinparam handwritten true
+skinparam defaultFontName "Comic Sans MS"
+center footer <font color=red>Warning:</font> Created for discussion, needs to be validated
+!enddefinelong
+
+!define LAYOUT_TOP_DOWN top to bottom direction
+!define LAYOUT_LEFT_RIGHT left to right direction
 
 !definelong LAYOUT_WITH_LEGEND
 hide stereotype
@@ -277,16 +154,68 @@ legend right
 endlegend
 !enddefinelong
 
+' Boundaries
+' ##################################
+
+!define Boundary(e_alias, e_label, e_type) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<boundary>> as e_alias
+!define Boundary(e_alias, e_label, e_type, e_lstyle) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_type]</size>" <<boundary>> as e_alias e_lstyle
+
+!define Enterprise_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Enterprise", "#line.bold")
+!define Office_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Office", "#line.bold")
+!define DC_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Data Center", "#line.dashed")
+!define Zone_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Zone", "#line.dashed")
+!define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System", "#line:dimgray;line.bold")
+!define Node_Boundary(e_alias, e_label) Node "==e_label\n<size:TECHN_FONT_SIZE>[Node]</size>" <<boundary>> as e_alias #line.dotted
+
 ' Elements
 ' ##################################
+!define Person(e_alias, e_label) actor "==e_label" <<actor>> as e_alias
+!define Person(e_alias, e_label, e_descr) actor "==e_label\n\n e_descr" <<actor>> as e_alias
+
+!define Person_Ext(e_alias, e_label) actor "==e_label" <<external_actor>> as e_alias
+!define Person_Ext(e_alias, e_label, e_descr) actor "==e_label\n\n e_descr" <<external_actor>> as e_alias
+
+!define System(e_alias, e_label) rectangle "==e_label" <<system>> as e_alias
+!define System(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<system>> as e_alias
+
+!define System_Ext(e_alias, e_label) rectangle "==e_label" <<external_system>> as e_alias
+!define System_Ext(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr" <<external_system>> as e_alias
+
+!define SystemDb(e_alias, e_label) database "==e_label" <<system>> as e_alias 
+!define SystemDb(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<system>> as e_alias
+
+!define SystemDb_Ext(e_alias, e_label) database "==e_label" <<external_system>> as e_alias
+!define SystemDb_Ext(e_alias, e_label, e_descr) database "==e_label\n\n e_descr" <<external_system>> as e_alias
 
 !define Container(e_alias, e_label, e_techn) usecase "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
 !define Container(e_alias, e_label, e_techn, e_descr) usecase "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
 
+'!define Container(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
+'!define Container(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
+
 !define ContainerDb(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
 !define ContainerDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
 
-' Boundaries
+' Access 
+' ##################################
+!define Access_(e_from, e_to, e_label, e_direction="") e_from e_direction e_to : "===e_label" 
+!define Access_(e_from, e_to, e_label, e_techn, e_direction="") e_from e_direction e_to : "===e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//"
+!define Access(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-->")
+!define Access(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "-->")
+!define Access_U(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-UP->")
+!define Access_U(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "-UP->")
+!define Access_D(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-DOWN->")
+!define Access_D(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "-DOWN->")
+!define Access_L(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-LEFT->")
+!define Access_L(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "-LEFT->")
+!define Access_R(e_from, e_to, e_label) Access_(e_from, e_to, e_label, "-RIGHT->")
+!define Access_R(e_from, e_to, e_label, e_techn) Access_(e_from, e_to, e_label, e_techn, "-RIGHT->")
+
+' Layout Helpers
 ' ##################################
 
-!define Container_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Container")
+!define Lay_D(e_from, e_to) e_from -[hidden]D- e_to
+!define Lay_U(e_from, e_to) e_from -[hidden]U- e_to
+!define Lay_R(e_from, e_to) e_from -[hidden]R- e_to
+!define Lay_L(e_from, e_to) e_from -[hidden]L- e_to
+
