@@ -14,6 +14,7 @@
 !define EXTERNAL_SYSTEM_BG_COLOR #999999
 
 !define CONTAINER_BG_COLOR #438DD5
+!define BOX_BG_COLOR #87afd6
 
 ' Styling
 ' ##################################
@@ -132,7 +133,7 @@ skinparam usecase<<container>> {
 skinparam rectangle<<box>> {
     StereotypeFontColor Black
     FontColor Black
-    BorderStyle dotted
+    BackgroundColor BOX_BG_COLOR
 }
 
 ' Layout
@@ -202,8 +203,8 @@ endlegend
 !define ContainerDb(e_alias, e_label, e_techn) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<container>> as e_alias
 !define ContainerDb(e_alias, e_label, e_techn, e_descr) database "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<container>> as e_alias
 
-!define Box(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<box>> as e_alias
-!define Box(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<box>> as e_alias
+!define Box(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<box>> as e_alias #line.dotted 
+!define Box(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<box>> as e_alias #line.dotted 
 
 ' Access 
 ' ##################################
