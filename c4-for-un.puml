@@ -130,8 +130,8 @@ skinparam usecase<<container>> {
 }
 
 skinparam rectangle<<box>> {
-    StereotypeFontColor ELEMENT_FONT_COLOR
-    FontColor ELEMENT_FONT_COLOR
+    StereotypeFontColor Black
+    FontColor Black
     BorderStyle dotted
 }
 
