@@ -14,7 +14,7 @@
 !define EXTERNAL_SYSTEM_BG_COLOR #999999
 
 !define CONTAINER_BG_COLOR #438DD5
-!define BOX_BG_COLOR #87afd6
+!define BOX_BG_COLOR #b8cce0
 
 ' Styling
 ' ##################################
