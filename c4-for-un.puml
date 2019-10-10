@@ -173,6 +173,7 @@ endlegend
 !define Zone_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Zone", "#line.dashed")
 !define System_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "System", "#line:dimgray;line.bold")
 !define Node_Boundary(e_alias, e_label) Node "==e_label\n<size:TECHN_FONT_SIZE>[Node]</size>" <<boundary>> as e_alias #line.dotted
+!define Instance_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "Instance", "#line:gray;line.dashed")
 
 ' Elements
 ' ##################################
