@@ -208,6 +208,50 @@ endlegend
 !define Box(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<box>> as e_alias #line.dotted 
 !define Box(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<box>> as e_alias #line.dotted 
 
+
+' Entity
+' ##################################
+
+!define Collection(name,desc) class name as "desc" << (T,#FFAAAA) >>
+
+!define Primary_key(x) <b>x</b>
+!define Unique(x) <color:green>x</color>
+!define Not_null(x) <u>x</u>
+
+' Entity relationship
+' ##################################
+
+!define Zone_to_zone(x, y) x |o--o| y
+!define Zone_to_one(x, y) x |o--|| y
+!define Zone_to_zmany(x, y) x |o--o{ y
+!define Zone_to_omany(x, y) x |o--|{ y
+!define Zone_to_many(x, y) x |o--{ y
+
+!define One_to_zone(x, y) x ||--o| y
+!define One_to_one(x, y) x ||--|| y
+!define One_to_zmany(x, y) x ||--o{ y
+!define One_to_omany(x, y) x ||--|{ y
+!define One_to_many(x, y) x ||--{ y
+
+!define Zmany_to_zone(x, y) x }o--o| y
+!define Zmany_to_one(x, y) x }o--|| y
+!define Zmany_to_zmany(x, y) x }o--o{ y
+!define Zmany_to_omany(x, y) x }o--|{ y
+!define Zmany_to_many(x, y) x }o--{ y
+
+!define Omany_to_zone(x, y) x }|--o| y
+!define Omany_to_one(x, y) x }|--|| y
+!define Omany_to_zmany(x, y) x }|--o{ y
+!define Omany_to_omany(x, y) x }|--|{ y
+!define Omany_to_many(x, y) x }|--{ y
+
+!define Many_to_zone(x, y) x }--o| y
+!define Many_to_one(x, y) x }--|| y
+!define Many_to_zmany(x, y) x }--o{ y
+!define Many_to_omany(x, y) x }--|{ y
+!define Many_to_many(x, y) x }--{ y
+
+
 ' Access 
 ' ##################################
 !define Access_(e_from, e_to, e_label, e_direction="") e_from e_direction e_to : "===e_label" 
